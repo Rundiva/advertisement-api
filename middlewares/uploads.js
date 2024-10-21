@@ -7,7 +7,7 @@ export const localUpload = multer({dest: 'uploads/'});
 export const advertIconUpload = multer({
     storage: multerSaveFilesOrg({
         apiAccessToken: process.env.SAVEFILESORG_API_KEY,
-        relativePath: '/advertisement-api/adverts/*'
+        relativePath: '/advert-api/adverts/*'
 
     }),
     preservePath: true
@@ -16,7 +16,7 @@ export const advertIconUpload = multer({
 export const userAvatarUpload = multer({
     storage: multerSaveFilesOrg({
         apiAccessToken: process.env.SAVEFILESORG_API_KEY,
-        relativePath: '/advertisement-api/users/*' 
+        relativePath: '/advert-api/users/*' 
 
     }),
     preservePath: true
