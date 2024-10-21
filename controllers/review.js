@@ -1,5 +1,5 @@
 
-import { ReviewModel } from "../model/review.js";
+import { ReviewModel } from "../models/review.js";
 import { reviewValidationSchema, updatReviewValidationSchema } from "../validators/review.js";
 
 export const addReview = async (req, res, next) => {

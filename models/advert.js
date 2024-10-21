@@ -1,4 +1,4 @@
-import { Schema,model } from "mongoose";
+import { Schema, model } from "mongoose";
 import { toJSON } from "@reis/mongoose-to-json";
 
 const advertSchema = new Schema({
@@ -13,4 +13,4 @@ const advertSchema = new Schema({
 
 advertSchema.plugin(toJSON);
 
-export const AdvertsModel = model("Adverts", advertSchema)
+export const AdvertModel = model("Adverts", advertSchema)

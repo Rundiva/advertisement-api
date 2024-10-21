@@ -13,3 +13,4 @@ reviewRouter.patch('/reviews/:id', updateReview);
 
 reviewRouter.delete('/reviews/:id', deleteReview);
 
+export default reviewRouter;

@@ -1,4 +1,4 @@
-import { Schema, Types, model } from "mongoose";
+import { Schema, model } from "mongoose";
 
 const reviewSchema = new Schema({
     rating: {type: Number, required: true},
