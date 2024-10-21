@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addAdvert, deleteAdvert, getAdverts, getAdvert, updateAdvert } from "../controllers/adverts.js";
+import { addAdvert, deleteAdvert, getAdverts, getAdvert, updateAdvert } from "../controllers/advert.js";
 
 // create routes
 const advertRouter = Router();

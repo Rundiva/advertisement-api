@@ -1,5 +1,5 @@
 import { AdvertModel } from "../models/advert.js";
-import { advertValidator, updateAdvertValidator } from "../validators/adverts.js";
+import { advertValidator, updateAdvertValidator } from "../validators/advert.js";
 
 export const addAdvert = async (req, res, next) => {
     try {
@@ -17,26 +17,26 @@ export const addAdvert = async (req, res, next) => {
     }
 };
 
-export const getAdverts = (req, res, next) => {
+export const getAdverts = async (req, res, next) => {
     try {
-        res.json(adverts)
+        const { filter = "{}", limit = 10, skip = 0} = req.query;
+    const { error, value } =  updateAdvertValidator.validate(req.body);
+
+    const adverts = await AdvertModel
+    .find(JSON.parse(filter))
+    .limit(limit)
+    .skip(skip);
+
+        res.json(advert)
     } catch (error) {
         next(error);
     }
 };
 
 
-export const getAdvert = async (req, res, next) => {
+export const getAdvert = (req, res, next) => {
     try {
-        const { filter = "{}", limit = 10, skip = 0} = req.query;
-        const { error, value } =  updateAdvertValidator.validate(req.body);
-    
-        const adverts = await AdvertModel
-        .find(JSON.parse(filter))
-        .limit(limit)
-        .skip(skip);
-    
-    res.json(adverts)
+    res.json(advert)
         } catch (error) {
             next(error);
         }
