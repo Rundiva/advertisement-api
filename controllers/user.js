@@ -1,6 +1,8 @@
 import { UserModel } from "../models/user.js"
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { logInUserValidator, registerUserValidator, updateProfileValidator } from "../validators/user.js";
+import { mailTransporter } from "../utils/mail.js";
 
 export const registerUser = async (req, res, next) => {
 try {
@@ -14,14 +16,14 @@ if (user){
     return res.status(409).json('user already exist!');
 }
 
-const hasedPassword = bcrypt.hashSync(value.password, 10)
+const hashedPassword = bcrypt.hashSync(value.password, 10)
 
 await UserModel.create({
     ...value,
     password: hashedPassword
 });
 
-await mailTransporter.semdMail({
+await mailTransporter.sendMail({
     to: value.email,
     subject: 'User Registration',
     text: 'Account registered successfully'

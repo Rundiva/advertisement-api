@@ -7,7 +7,9 @@ export const permissions = [
             'get_advert', 
             'update_advert'
         ]
-    },
+    }, 
+
+
     {
         role: 'admin',
         actions: [
