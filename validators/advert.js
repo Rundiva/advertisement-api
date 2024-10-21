@@ -5,7 +5,7 @@ export const advertValidator = Joi.object ({
     description: Joi.string().required(),
     image: Joi.string().required(),
     category: Joi.string().required(),
-    price: Joi.string().required()
+    price: Joi.number().required()
 });
 
 export const updateAdvertValidator = Joi.object ({
