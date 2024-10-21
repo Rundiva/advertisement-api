@@ -8,7 +8,7 @@ res.json("Advert posted successfully")
 
 export const getAdverts = (req, res, next) => {
     try {
-res.json("Views all adverts")
+res.json("View all adverts")
     } catch (error) {
         next(error);
     }
@@ -16,7 +16,7 @@ res.json("Views all adverts")
 
 export const getOneAdvert = (req, res, next) => {
     try {
-res.json("View single advert")
+res.json("View advert")
     } catch (error) {
         next(error);
     }
