@@ -54,7 +54,7 @@ export const updateAdvert = async (req, res, next) => {
         }
         const updateadvert = await AdvertModel.findOneAndUpdate(
             {
-                id: req.params.id,
+                _id: req.params.id,
                 user: req.auth.id
             },
             value,
@@ -76,7 +76,7 @@ export const deleteAdvert = async (req, res, next) => {
     try {
         const advert = await AdvertModel.findOneAndDelete(
             {
-                id: req.params.id,
+                _id: req.params.id,
                 user: req.auth.id
             });
 
