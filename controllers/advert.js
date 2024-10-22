@@ -26,7 +26,6 @@ export const getAdverts = async (req, res, next) => {
             .sort(JSON.parse(sort))
             .limit(limit)
             .skip(skip);
-
         res.status(200).json(adverts)
     } catch (error) {
         next(error);
@@ -61,7 +60,7 @@ export const updateAdvert = async (req, res, next) => {
             { new: true }
         );
         if (!updateadvert) {
-            res.status(422).json("Advert not found");
+            res.status(404).json("Advert not found");
         }
         res.status(200).json(updateadvert)
 
@@ -79,7 +78,7 @@ export const deleteAdvert = async (req, res, next) => {
             });
 
         if (!advert) {
-            return res.status(422).json("Adverts not found")
+            return res.status(404).json("Advert not found")
         }
         res.status(200).json(advert)
     } catch (error) {

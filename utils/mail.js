@@ -2,10 +2,11 @@ import { createTransport } from "nodemailer";
 
 export const mailTransporter = createTransport({
     host: 'smtp.gmail.com',
-    port: 456,
+    port: 465,
+    secure: true,
     auth: {
-        user: 'perama44@gmail.com',
-        pass: ''
+        user: 'perpaman44@gmail.com',
+        pass: 'grfhgzkyxmvogatz'
     },
     from: 'perpaman44@gmail.com'
 });

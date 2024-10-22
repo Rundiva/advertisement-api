@@ -5,7 +5,9 @@ const userSchema =new Schema({
     name: {type: String, required:true },
     email: { type:String, required:true, unique:true },
     password: { type:String, required:true},
-    repeat_password: { type:String, ref: 'password' }
+    // repeat_password: { type:String, ref:'password' },
+    avatar: { type: String },
+    role: { type: String, default: 'user', enum: ['user', 'admin']}
 }); {
     timestamps: true
 }

@@ -5,7 +5,8 @@ export const permissions = [
             'get_profile',
             'add_advert',
             'get_advert', 
-            'update_advert'
+            'update_advert',
+            'update_profile'
         ]
     }, 
 
@@ -18,7 +19,8 @@ export const permissions = [
             'get_adverts',
             'get_advert',
             'update_advert',
-            'delete_advert'
+            'delete_advert',
+            'update_profile'
         ]
     }
 ]
