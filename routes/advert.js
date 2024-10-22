@@ -1,19 +1,21 @@
 import { Router } from "express";
 import { addAdvert, deleteAdvert, getAdverts, getAdvert, updateAdvert } from "../controllers/advert.js";
+import { isAuthenticated } from "../middlewares/authenticator.js";
+import { advertImageUpload } from "../middlewares/uploads.js";
 
 // create routes
 const advertRouter = Router();
 
 // define routes
-advertRouter.post("/adverts", addAdvert);
+advertRouter.post("/adverts",isAuthenticated, advertImageUpload.single("image"), addAdvert);
 
 advertRouter.get("/adverts", getAdverts);
 
 advertRouter.get("/adverts/:id", getAdvert);
 
-advertRouter.patch("/adverts", updateAdvert);
+advertRouter.patch("/adverts/:id", updateAdvert);
 
-advertRouter.delete("/adverts", deleteAdvert);
+advertRouter.delete("/adverts/:id", isAuthenticated, advertImageUpload.single("image"), deleteAdvert);
 
 
 // export router
