@@ -27,7 +27,7 @@ export const getAdverts = async (req, res, next) => {
     .limit(limit)
     .skip(skip);
 
-        res.json(advert)
+        res.json(adverts)
     } catch (error) {
         next(error);
     }
