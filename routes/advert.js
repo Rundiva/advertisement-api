@@ -13,9 +13,9 @@ advertRouter.get("/adverts", getAdverts);
 
 advertRouter.get("/adverts/:id", getAdvert);
 
-advertRouter.patch("/adverts/:id", updateAdvert);
+advertRouter.patch("/adverts/:id",isAuthenticated, advertImageUpload.single("image"), updateAdvert);
 
-advertRouter.delete("/adverts/:id", isAuthenticated, advertImageUpload.single("image"), deleteAdvert);
+advertRouter.delete("/adverts/:id", isAuthenticated, deleteAdvert);
 
 
 // export router
