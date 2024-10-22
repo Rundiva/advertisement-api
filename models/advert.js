@@ -1,6 +1,6 @@
 import { Schema, Types, model } from "mongoose";
 import { toJSON } from "@reis/mongoose-to-json";
-import { required } from "joi";
+
 
 const advertSchema = new Schema({
     title: { type: String, required: true },
