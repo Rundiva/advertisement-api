@@ -49,7 +49,7 @@ export const updateAdvert = async (req, res, next) => {
     try {
         const { error, value } = updateAdvertValidator.validate({
             ...req.body,
-            icon: req.file?.filename
+            image: req.file?.filename
         });
         if (error) {
             return res.status(422).json(error);
@@ -80,7 +80,7 @@ export const deleteAdvert = async (req, res, next) => {
                 user: req.auth.id
             });
 
-        if (!advert) {
+        if (!deleteadvert) {
             return res.status(404).json("Advert not found")
         }
         res.status(200).json(deleteadvert)
