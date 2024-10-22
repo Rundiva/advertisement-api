@@ -1,5 +1,5 @@
 import express from "express";
-import advertRouter from "./routes/adverts.js";
+import advertRouter from "./routes/advert.js";
 import userRouter from "./routes/user.js";
 import reviewRouter from "./routes/review.js";
 import mongoose from "mongoose";

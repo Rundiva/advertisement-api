@@ -1,12 +1,11 @@
 import { Router } from "express";
-import { addAdvert, deleteAdvert, getAdverts, getAdvert, updateAdvert } from "../controllers/adverts.js";
-import { advertImageUpload } from "../middlewares/uploads.js";
+import { addAdvert, deleteAdvert, getAdverts, getAdvert, updateAdvert } from "../controllers/advert.js";
 
 // create routes
 const advertRouter = Router();
 
 // define routes
-advertRouter.post("/adverts", advertImageUpload.single("image"), addAdvert);
+advertRouter.post("/adverts", addAdvert);
 
 advertRouter.get("/adverts", getAdverts);
 
