@@ -26,7 +26,6 @@ export const getAdverts = async (req, res, next) => {
             .sort(JSON.parse(sort))
             .limit(limit)
             .skip(skip);
-
         res.status(200).json(adverts)
     } catch (error) {
         next(error);
