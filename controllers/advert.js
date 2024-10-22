@@ -5,12 +5,15 @@ export const addAdvert = async (req, res, next) => {
     try {
         const { error, value } = advertValidator.validate({
             ...req.body,
-            icon: req.file?.filename
+            image: req.file?.filename
         });
         if (error) {
             return res.status(422).json(error);
         }
-        await AdvertModel.create(value);
+        await AdvertModel.create({
+            ...value,
+            user: req.auth.id
+        });
         res.status(201).json("Advert posted successfully!")
     } catch (error) {
         next(error);
@@ -71,7 +74,7 @@ export const updateAdvert = async (req, res, next) => {
 
 export const deleteAdvert = async (req, res, next) => {
     try {
-        const advert = await AdvertModel.findOneAndDelete(
+        const deleteadvert = await AdvertModel.findOneAndDelete(
             {
                 _id: req.params.id,
                 user: req.auth.id
@@ -80,7 +83,7 @@ export const deleteAdvert = async (req, res, next) => {
         if (!advert) {
             return res.status(404).json("Advert not found")
         }
-        res.status(200).json(advert)
+        res.status(200).json(deleteadvert)
     } catch (error) {
         next(error);
     }
