@@ -7,7 +7,7 @@ import { advertImageUpload } from "../middlewares/uploads.js";
 const advertRouter = Router();
 
 // define routes
-advertRouter.post("/adverts", advertImageUpload.single("image"), addAdvert);
+advertRouter.post("/adverts",isAuthenticated, advertImageUpload.single("image"), addAdvert);
 
 advertRouter.get("/adverts", getAdverts);
 
