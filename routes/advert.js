@@ -12,11 +12,9 @@ advertRouter.post("/adverts", advertImageUpload.single("image"), addAdvert);
 advertRouter.get("/adverts", isAuthenticated, getAdverts);
 
 advertRouter.get("/adverts/:id", getAdvert);
-
 advertRouter.patch("/adverts/:id", isAuthenticated, advertImageUpload.single("image"), updateAdvert);
 
 advertRouter.delete("/adverts/:id", deleteAdvert);
-
 
 // export router
 export default advertRouter;
