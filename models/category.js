@@ -9,4 +9,5 @@ const categorySchema = new Schema({
     timestamps: true
 });
 
+categorySchema.plugin(toJSON)
 export const CategoryModel = model('Category', categorySchema)
