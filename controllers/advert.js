@@ -25,7 +25,8 @@ export const getAdverts = async (req, res, next) => {
             .find(JSON.parse(filter))
             .sort(JSON.parse(sort))
             .limit(limit)
-            .skip(skip);
+            .skip(skip)
+            .populate('category');
         res.status(200).json(adverts)
     } catch (error) {
         next(error);
@@ -35,7 +36,7 @@ export const getAdverts = async (req, res, next) => {
 export const getAdvert = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const advert = await AdvertModel.findById(id);
+        const advert = await AdvertModel.findById(id).populate('category');
         res.json(advert)
     } catch (error) {
         next(error);
@@ -51,7 +52,7 @@ export const updateAdvert = async (req, res, next) => {
         if (error) {
             return res.status(422).json(error);
         }
-        const updateadvert = await AdvertModel.findOneAndUpdate(
+        const updateAdvert = await AdvertModel.findOneAndUpdate(
             {
                 _id: req.params.id,
                 user: req.auth.id
@@ -59,11 +60,11 @@ export const updateAdvert = async (req, res, next) => {
             value,
             { new: true }
         );
-        if (!updateadvert) {
+        if (!updateAdvert) {
             res.status(404).json("Advert not found");
-
-            res.status(200).json(updateadvert)
         }
+            res.status(200).json(updateAdvert)
+       
 
 
     } catch (error) {
@@ -80,7 +81,7 @@ export const deleteAdvert = async (req, res, next) => {
             });
 
         if (!advert) {
-            return res.status(422).json("Adverts not found")
+            return res.status(422).json("Advert not found")
         }
         res.json("Advert deleted successfully")
     } catch (error) {
