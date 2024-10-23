@@ -6,7 +6,9 @@ export const permissions = [
             'add_advert',
             'get_advert', 
             'update_advert',
-            'update_profile'
+            'update_profile',
+            'post_category',
+            'update_category'
         ]
     }, 
 
@@ -20,7 +22,12 @@ export const permissions = [
             'get_advert',
             'update_advert',
             'delete_advert',
-            'update_profile'
+            'update_profile',
+            'post_category',
+            'get_category',
+            'get_categories',
+            'update_category',
+            'delete_category'
         ]
     }
 ]
