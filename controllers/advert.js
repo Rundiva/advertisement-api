@@ -77,17 +77,17 @@ export const updateAdvert = async (req, res, next) => {
 
 export const deleteAdvert = async (req, res, next) => {
     try {
-        const deleteadvert = await AdvertModel.findOneAndDelete(
+        const deleteAdvert = await AdvertModel.findOneAndDelete(
             {
                 _id: req.params.id,
                 user: req.auth.id
             });
 
-        if (!advert) {
+        if (!deleteAdvert) {
             return res.status(422).json("Advert not found")
 
         }
-        res.status(200).json(deleteadvert)
+        res.status(200).json(deleteAdvert)
     } catch (error) {
         next(error);
     }

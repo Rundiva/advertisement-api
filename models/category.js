@@ -9,5 +9,6 @@ const categorySchema = new Schema({
     timestamps: true
 });
 
-categorySchema.plugin(toJSON)
+categorySchema.plugin(toJSON);
+
 export const CategoryModel = model('Category', categorySchema)
