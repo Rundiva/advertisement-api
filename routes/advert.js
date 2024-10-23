@@ -9,7 +9,7 @@ const advertRouter = Router();
 // define routes
 advertRouter.post("/adverts", advertImageUpload.single("image"), addAdvert);
 
-advertRouter.get("/adverts", isAuthenticated, getAdverts);
+advertRouter.get("/adverts", getAdverts);
 
 advertRouter.get("/adverts/:id", getAdvert);
 advertRouter.patch("/adverts/:id", isAuthenticated, advertImageUpload.single("image"), updateAdvert);
