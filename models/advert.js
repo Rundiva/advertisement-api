@@ -7,7 +7,7 @@ const advertSchema = new Schema({
     description: { type: String, required: true },
     image: { type: String, required: true },
     category: { type: Types.ObjectId, ref: 'Category' },
-    price: { type: Number, required: true },
+    price: { type: String, required: true },
     user: { type: Types.ObjectId, required: true, ref: 'Advert' }
 }, {
     timestamps: true

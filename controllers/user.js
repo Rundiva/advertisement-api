@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { logInUserValidator, registerUserValidator, updateProfileValidator } from "../validators/user.js";
 import { mailTransporter } from "../utils/mail.js";
+import { AdvertModel } from "../models/advert.js";
 
 export const registerUser = async (req, res, next) => {
     try {
@@ -81,6 +82,25 @@ export const getProfile = async (req, res, next) => {
         res.json(user);
     } catch (error) {
         next(error);
+    }
+}
+
+export const getUserAdverts = async (req, res, next) => {
+    try {
+        const { filter = "{}", sort = "{}", limit = 10, skip = 0 } = req.query;
+
+        const adverts = await AdvertModel
+            .find({
+                ...JSON.parse(filter),
+                user: req.auth.id
+            })
+            .sort(JSON.parse(sort))
+            .limit(limit)
+            .skip(skip)
+            .populate('category');
+        res.status(200).json(adverts);
+    } catch (error) {
+        
     }
 }
 
