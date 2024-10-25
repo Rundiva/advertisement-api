@@ -22,7 +22,7 @@ export const addAdvert = async (req, res, next) => {
 
 export const getAdverts = async (req, res, next) => {
     try {
-        const { filter = "{}", sort = "{}", limit = 200, skip = 0 } = req.query;
+        const { filter = "{}", sort = "{}", limit = 1000, skip = 0 } = req.query;
 
         const adverts = await AdvertModel
             .find(JSON.parse(filter))
